@@ -1,0 +1,50 @@
+body{
+	position: relative;
+	background: #efefee;
+	min-height: 45 rem;
+	padding-bottom: 70px;
+	background-image:  url('../images/internet3.jpg') ;
+	background-repeat: no-repeat;
+	/*background-position: 0% ;*/
+	background-size: fixed;
+	font-style: corsiva;
+	text-decoration: bold;
+}
+html{
+	height: 100%;
+}
+
+.navbar-bg{
+	background-image:  url('../images/universe.jpg');
+	background-size: 80%;
+}
+
+hr{
+	box-shadow: 0px 3px 3px 0px black;
+}
+.cv{
+	text-align: center;
+	color: #fff;
+	font-family: serif;
+	font-size: 20px;
+	text-shadow: 1px 1px 2px #000;
+}
+
+
+
+.brique{
+	background-color: #fff;
+	box-shadow: 0px 0px 3px 3px #fff;
+	border-style: none; 
+	padding : 10px;
+	margin: 10px;
+	
+}	
+
+.server{
+	
+	/*-ms-transform: rotate(90deg); 
+    -moz-transform: rotate(90deg); 
+    -webkit-transform: rotate(90deg); 
+    -o-transform: rotate(90deg);*/
+}

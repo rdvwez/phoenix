@@ -6,9 +6,9 @@
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
        {% block stylesheets %}
        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-      <!-- <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}"> -->
+      <!-- <link rel="stylesheet" href="{{ asset('/css/font-awesome.css') }}"> -->
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-      <link rel="stylesheet" href="{{ asset('css/style.css') }}"> 
+      <link rel="stylesheet" href="{{ asset('/css/style.css') }}"> 
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"> 
 
       <link   rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" integrity="sha256-HtCCUh9Hkh//8U1OwcbD8epVEUdBvuI8wj1KtqMhNkI=" crossorigin="anonymous">
@@ -26,28 +26,28 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
-                <a style="color: #fff;" class="nav-link" href="{{ path('Accueil')}}">Accueil</a>
+                <a style="color: #fff;" class="nav-link" href="{{ path('app_accueil')}}">Accueil</a>
               </li>
               <li class="nav-item">
-                <a style="color: #fff;" class="nav-link" href="{{ path('Portfolio')}}">Portfolio</a>
+                <a style="color: #fff;" class="nav-link" href="{{ path('app_Portfolio')}}">Portfolio</a>
               </li>
               <li class="nav-item">
-                <a style="color: #fff;" class="nav-link" href="{{ path('Projets')}}">Mes Projets</a>
+                <a style="color: #fff;" class="nav-link" href="{{ path('app_MesProjets')}}">Mes Projets</a>
               </li>
               <li class="nav-item">
-                <a style="color: #fff;" class="nav-link" href="{{ path('Tutos')}}">Tutos et cours</a>
+                <a style="color: #fff;" class="nav-link" href="{{ path('app_Tutos')}}">Tutos et cours</a>
               </li>
               <li class="nav-item dropdown">
         				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="" aria-expanded="#">A propos de moi</a>
         				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          				<a class="dropdown-item" href="{{ path('Informations_Personnelles')}}">Informations personnelles</a>
-          				<a class="dropdown-item" href="{{ path('philosophie')}}">Philosophie</a>
+          				<a class="dropdown-item" href="{{ path('app_InformationsPersonnelles')}}">Informations personnelles</a>
+          				<a class="dropdown-item" href="{{ path('app_Philosophie')}}">Philosophie</a>
           				<div class="dropdown-divider"></div>
-          				<a class="dropdown-item" href="{{ path('Loisirs_et_divers')}}">Loisirs et Divers</a>
+          				<a class="dropdown-item" href="{{ path('app_Loisirs')}}">Loisirs et Divers</a>
         				</div>
       				</li>
       				<li class="nav-item">
-                <a style="color: #fff;" class="nav-link" href="{{ path('Me_contacter')}}">Me contacter</a>
+                <a style="color: #fff;" class="nav-link" href="{{ path('app_Mecontacter')}}">Me contacter</a>
               </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">

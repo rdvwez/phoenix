@@ -1,0 +1,105 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="show-article-container p-3 mt-4">
+              <div class="row">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb ">
+                    <li class="breadcrumb-item  " aria-current="page">Accueil</li>
+                    <li class="breadcrumb-item active " aria-current="page">Mes Projets</li>
+                  </ol>
+                </nav>
+              </div>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">VwezCV</h5>
+                         <h6 class="card-subtitle mb-2 text-muted">presentation du cv</h6>
+                         <p class="card-text">
+                           Il s'agit ici d'un projet pilote me permetant de developper ce site web et en même temps d'apprendre et maitriser Synfony. La barre de progression en dessous vpos permet de voir le niveau de progression de ce dernier
+                         </p>
+                        <div class="progress">
+                          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%"> <b>35%</b></div>
+                          
+                        </div>
+                        <a href="#" class="card-link">En savoir plus...</a>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="col-sm-4"> 
+                  
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Sohla</h5>
+                         <h6 class="card-subtitle mb-2 text-muted">Application de gestion</h6>
+                         <p class="card-text">
+                           Il s'agit ici d'un projet pilote me permetant de developper une application web de gestion et en même temps d'apprendre et maitriser le NodeJs. La barre de progression en dessous vpos permet de voir le niveau de progression de ce dernier
+                         </p>
+                        <div class="progress">
+                          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="24" aria-valuemin="0" aria-valuemax="100" style="width: 24%"> <b>24%</b></div>
+                          
+                        </div>
+                        <a href="#" class="card-link">En savoir plus...</a>
+                      </div>
+                    </div>
+
+                  
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Titre</h5>
+                         <h6 class="card-subtitle mb-2 text-muted">sous titre du projet</h6>
+                         <p class="card-text">
+                          description du projet
+                         </p>
+                        <div class="progress">
+                          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"> <b>0%</b></div>
+                          
+                        </div>
+                        <a href="#" class="card-link">En savoir plus...</a>
+                      </div>
+                    </div>
+
+                  
+                </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-12">
+                    
+                      <a href="#" >
+                      <img src="{{ asset('/images/idea.jpg') }}" class="rounded animated jackInTheBox"  alt="..." style="width: ; height: ;" title="soumettre une idée">
+                       </a>
+                    </div>
+                   
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}
