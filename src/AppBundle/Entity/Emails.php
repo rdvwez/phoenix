@@ -1,6 +1,6 @@
 <?php
 
-// src/AppBundle/Entity/Product.php
+// src/AppBundle/Entity/Emails.php
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;

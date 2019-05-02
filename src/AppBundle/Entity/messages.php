@@ -1,6 +1,6 @@
 <?php
 
-// src/AppBundle/Entity/Product.php
+// src/AppBundle/Entity/Messages.php
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -20,9 +20,17 @@ class Messages
 
     /**
      * @ORM\Column(type="string", length=255)
+     * 
      */
     private $contenu;
 
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Emails")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $email;
+    
 
     public function getContenu()
     {
@@ -34,5 +42,14 @@ class Messages
         $this->contenu = $contenu;
     }
 
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    public function setEmail(Emails $email)
+    {
+        $this->email = $email;
+    }
    
 }

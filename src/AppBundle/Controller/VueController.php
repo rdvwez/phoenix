@@ -71,5 +71,19 @@ class VueController extends Controller
 	public function InformationsPersonnelles()
 	{
 		return $this->render('pages/Affichage.html.twig' );
-	}
+    }
+    
+    /**
+     * @Route("/messages")
+     */
+    public function listMessages()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $message = $em->getRepository('AppBundle:messages')
+            ->findAll();
+
+            return $this->render('genuspages/list.html.twig', [
+                'genusesmessages' => $messages
+            ]);
+    }
 }
