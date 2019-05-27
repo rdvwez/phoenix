@@ -1,10 +1,21 @@
 <?php
 
 namespace AppBundle\Controller;
+// namespace Symfony\Component\Validator\Constraints;
+// use Doctrine\ORM\EntityManagerInterface;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Entity\Messages;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Doctrine\ORM\EntityManagerInterface;
+// use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+// use Symfony\Component\Validator\Constraints\DateTime;
 
 class VueController extends Controller
 {
@@ -59,10 +70,41 @@ class VueController extends Controller
 
 	/**
 	* @Route("/Me_Contacter",name="Me_contacter")
+	*@Route("/enregistrer_messages", name="enregistrer_message")
 	*/
-	public function Contacter()
+	public function Contacter(Request $request)
 	{
-		return $this->render('pages/contacts.html.twig');
+		$entityManager = $this->getDoctrine()->getManager();
+		$messages = new Messages();
+		// $messages->setCreatedAt(new \DateTime());
+		$form = $this->createFormBuilder($messages)
+			->add('email',EmailType::class)
+			->add('contenu',TextareaType::class)
+			// ->add('createdAt',DateTimeType::class)
+			->getForm();
+			$dt = new \DateTime();
+			
+			
+			$form->handleRequest($request);
+
+			
+
+			if ($form->isSubmitted() && $form->isValid()) {
+				
+				
+				$messages->setCreatedAt($dt);
+				// dump($messages);
+        $messages = $form->getData();
+				$entityManager->persist($messages);
+				$entityManager->flush();
+
+        return $this->redirectToRoute('Me_contacter',['code'=>'success']);
+    }
+			
+		return $this->render('pages/contacts.html.twig', [
+            'formMessages' => $form->createView(),
+        ]);
+
 	}
 
 	/**
@@ -73,17 +115,5 @@ class VueController extends Controller
 		return $this->render('pages/Affichage.html.twig' );
     }
     
-    /**
-     * @Route("/messages")
-     */
-    public function listMessages()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $message = $em->getRepository('AppBundle:messages')
-            ->findAll();
-
-            return $this->render('genuspages/list.html.twig', [
-                'genusesmessages' => $messages
-            ]);
-    }
+    
 }

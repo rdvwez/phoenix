@@ -19,37 +19,60 @@ class Messages
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="contenu",type="text",nullable=false)
      * 
      */
     private $contenu;
 
-
+    
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Emails")
-     * @ORM\JoinColumn(nullable=false)
+     * 
+     * @ORM\Column(name="email",type="string",nullable=false)
      */
     private $email;
-    
 
-    public function getContenu()
+    /**
+     * 
+     * @ORM\Column(name="createdAt",type="datetime",nullable=false)
+     */
+    private $createdAt;
+    
+    public function getId():?int
+    {
+        return $this->id;
+    }
+
+    public function getContenu():?string
     {
         return $this->contenu;
     }
 
-    public function setContenu($contenu)
+    public function setContenu(string $contenu):self
     {
         $this->contenu = $contenu;
+        return $this;
     }
 
-    public function getEmail()
+    public function getEmail(): ?string
     {
         return $this->email;
     }
 
-    public function setEmail(Emails $email)
+    public function setEmail(string $email): self
     {
         $this->email = $email;
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+        return $this;
     }
    
 }

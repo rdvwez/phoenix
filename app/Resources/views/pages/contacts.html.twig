@@ -18,27 +18,48 @@
                   </ol>
                 </nav>
               </div>
+              
+              <div class="row">
+                <div class="col-sm-12">
+                 
+                </div>
+              </div>
                 <div class="row">
                     <div class="col-sm-3"></div>
                     <div class="col-sm-6">
-                      <form>
-                        <form method="post" action="#">
+                     {% if code is defined %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                      <strong>Super!</strong> Votre message a été enregistrer avec success
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                  {% endif %}
+                      {# app/Resources/views/default/new.html.twig #}
+                      {{ form_start(formMessages, { 'attr':{'method':"POST",'action':"/enregistrer_messages",'id':'formulaire'}}) }}
+                     
+                      
+
+                        {# <form method="POST" action="{{ path('enregistrer_message')}}" id="formulaire"> #}
                           <div class="form-group">
-                            <label for="Email">Email </label>
-                            <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Entrer votre email">
+                            {# <label for="Email">Email </label> #}
+                             {{ form_row(formMessages.email, {'attr':{'class':'form-control','type':"email", 'id':'email','aria-describedby':"emailHelp",'placeholder':"Entrer votre email",'required':'required'}}) }}
                             <small id="emailHelp" class="form-text text-muted">votre Email ne sera pas publié</small>
                           </div>
+                             {# {{ form_row(formMessages.createdAt,{'attr':{	'class':"form-control"}}) }} #}
                           <div class="form-group">
-                              <label for="message">Example textarea</label>
-                              <textarea class="form-control" id="message" rows="3"></textarea>
+                              {# <label for="message">Votre message</label> #}
+                               {{ form_row(formMessages.contenu,{'attr':{	'class':"form-control",	'id':"message",'rows':"3",'required':'required'}}) }}
+                              
                             </div>
                           <!-- <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
                             <label class="form-check-label" for="exampleCheck1">Check me out</label>
                           </div> -->
+                          {# {{ form_row(formMessages.bouton ,{'label' : 'Enregistrer',	'attr'  :{'class' :"btn btn-primary"}}) }} #}
                           <button type="submit" class="btn btn-primary">Envoyer</button>
-                        </form>
-                      </form>
+                        {# </form> #}
+                      {{ form_end(formMessages) }}
                     </div>
                     <div class="col-sm-3"></div>
                 </div>
@@ -48,8 +69,40 @@
     </div>
 </div>
 
+<script>
+                   
 
+                    $(document).ready(function(){
+                        $("#formulaire").submit(function(e){ // On sélectionne le formulaire par son identifiant
+                                e.preventDefault(); // Le navigateur ne peut pas envoyer le formulaire
+
+                                var donnees = $(this).serialize(); // On créer une variable content le formulaire sérialisé
+
+                                alert(donnees);
+                                $.ajax({
+                                    url : '/enregistrer_messages',
+                                    method: 'post',
+                                    type : '',
+                                    dataType : 'text',
+                                    data : donnees,
+                                    success : function(reponse,status,xhr){
+                                    $(code_html).appendTo("#commentaires"); 
+                                        },
+                                    erreur : function(resultat,statut,erreur){
+
+                                    },
+                                    complete : function(resultat,status){
+
+                                    }
+                            });
+                        });
+                    });
+
+               </script>
 
 
 
 {% endblock %}
+
+
+
