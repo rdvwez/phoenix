@@ -27,7 +27,11 @@
                 <div class="row">
                     <div class="col-sm-3"></div>
                     <div class="col-sm-6">
-                     {% if code is defined %}
+                    {{ code  }}
+                    {# {% set code = 1 %} #}
+                    
+                     {% if code == 1 %}
+                     
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                       <strong>Super!</strong> Votre message a été enregistrer avec success
                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
