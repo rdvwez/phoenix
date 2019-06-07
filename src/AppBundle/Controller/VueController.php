@@ -98,9 +98,9 @@ class VueController extends Controller
 			
 				$messages->setCreatedAt($dt);
 				// dump($messages);
-        // $messages = $form->getData();
-				// $entityManager->persist($messages);
-				// $entityManager->flush();
+        $messages = $form->getData();
+				$entityManager->persist($messages);
+				$entityManager->flush();
 				
 				$messageToSend = (new \Swift_Message('Accusé de réception de votre message'))
 					->setFrom('vwezrd@gmail.com')
